@@ -1,0 +1,8 @@
+# ultralytics<=8.3.40
+# supervision 
+# roboflow 
+# wandb
+onnx==1.19.0
+onnxslim>=0.1.71
+onnxscript==0.5.7
+onnxruntime==1.23.2

@@ -210,3 +210,5 @@ wandb/
 pk-env/
 poker-cards/
 *.cache
+*.engine
+*.onnx

@@ -3,7 +3,7 @@
 
 from ultralytics import YOLO
 
-MODEL_PATH = "model/yolo11s_best.pt"
+MODEL_PATH = "../model/yolo11s_best.pt"
 
 model = YOLO(MODEL_PATH)
 

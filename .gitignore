@@ -208,7 +208,8 @@ __marimo__/
 
 wandb/
 pk-env/
-poker-cards/
+poker-cards-detection/
 *.cache
 *.engine
 *.onnx
+datasets/

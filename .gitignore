@@ -213,3 +213,5 @@ poker-cards-detection/
 *.engine
 *.onnx
 datasets/
+*.pth 
+Playing-Cards-4/

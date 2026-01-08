@@ -1,18 +1,27 @@
 import cv2
 import time
+import argparse
 from ultralytics import YOLO
 from utils import GStreamerCamera
 
 ENGINE_PATH = "model/yolo11s_best.engine"
 CONF_THRESHOLD = 0.25
 
-def main():
+def main(video_path=None):
     model = YOLO(ENGINE_PATH, task='detect')
-    cap = GStreamerCamera(device=0)
     
-    if not cap.start():
-        print("Error: Could not open camera")
-        return
+    if video_path:
+        cap = cv2.VideoCapture(video_path)
+        if not cap.isOpened():
+            print(f"Error: Could not open video file: {video_path}")
+            return
+        use_gstreamer = False
+    else:
+        cap = GStreamerCamera(device=0)
+        if not cap.start():
+            print("Error: Could not open camera")
+            return
+        use_gstreamer = True
     
     prev_time = time.time()
     frame_count = 0
@@ -22,6 +31,8 @@ def main():
     while True:
         ret, frame = cap.read()
         if not ret or frame is None:
+            if video_path:
+                break
             continue
         
         frame_count += 1
@@ -53,8 +64,15 @@ def main():
         if cv2.waitKey(1) & 0xFF == ord('q'):
             break
     
-    cap.stop()
+    if use_gstreamer:
+        cap.stop()
+    else:
+        cap.release()
     cv2.destroyAllWindows()
 
 if __name__ == "__main__":
-    main()
+    parser = argparse.ArgumentParser(description="Poker Card Detection")
+    parser.add_argument("--video", "-v", type=str, default=None,
+                        help="Path to video file. If not provided, uses webcam.")
+    args = parser.parse_args()
+    main(video_path=args.video)

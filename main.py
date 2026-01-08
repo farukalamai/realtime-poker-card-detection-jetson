@@ -4,7 +4,7 @@ from ultralytics import YOLO
 from utils import GStreamerCamera
 
 ENGINE_PATH = "model/yolo11s_best.engine"
-CONF_THRESHOLD = 0.40
+CONF_THRESHOLD = 0.25
 
 def main():
     model = YOLO(ENGINE_PATH, task='detect')

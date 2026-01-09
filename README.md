@@ -18,9 +18,13 @@ python scripts/yolo_to_fp16.py
 ```
 
 ## Usage
-
+For Realtime
 ```bash
 python main.py
+```
+For Video
+```bash
+python main.py --video path/to/video.mp4
 ```
 
 ## Training

@@ -1,10 +1,6 @@
 # Real-Time Poker Card Detection on Jetson Orin
 
-
-
-https://github.com/user-attachments/assets/fd643f5d-1390-42d5-8ef4-807bc754ff0f
-
-
+https://github.com/user-attachments/assets/46ade7e7-b743-4394-a157-0f318348b341
 
 **Real-time 52-class playing card detection using YOLO11s.**
 

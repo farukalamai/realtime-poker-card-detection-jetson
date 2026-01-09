@@ -215,5 +215,5 @@ poker-cards-detection/
 datasets/
 *.pth 
 Playing-Cards-4/
-data/
+*.mp4
 rfdetr_main.py
